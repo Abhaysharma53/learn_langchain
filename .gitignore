@@ -1,5 +1,4 @@
 *.png
 .env
 test_HF_api.py
-.venv
 __pycache__/
