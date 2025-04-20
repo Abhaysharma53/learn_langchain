@@ -18,14 +18,20 @@ length_input = st.selectbox("Select a length", ["Short (1-2 Paragraph)", "Medium
 
 template = load_prompt("research_paper_summary_template.json")
 
-prompt = template.invoke({
-    "paper_input": paper_input,
-    "style_input": style_input,
-    "length_input": length_input
-})
+# prompt = template.invoke({
+#     "paper_input": paper_input,
+#     "style_input": style_input,
+#     "length_input": length_input
+# })
 
-result = model.invoke(prompt)
+#result = model.invoke(prompt)
 if st.button("Summarize"):
+    chain = template | model
+    result = chain.invoke({
+        "paper_input": paper_input,
+        "style_input": style_input,
+        "length_input": length_input
+    })
     st.write(result.content)
 
 
