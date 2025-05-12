@@ -4,3 +4,4 @@ test_HF_api.py
 __pycache__/
 venv
 help.txt
+*.pdf
